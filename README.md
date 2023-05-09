@@ -25,16 +25,16 @@ Ce projet utilise Rust en front-end et en back-end.
 ### Outils
 
 - cargo, gestion des dépendances
-- rustfmt, **formater** de code
-- clippy, **linter**
+- rustfmt, *formater* de code
+- clippy, *linter*
 - docker, conteneur
 - mysql, base de données
 
 ### Frameworks
 
-- dioxus, **framework** front
+- dioxus, *framework* front
 - pico.css, bibliothèque de style
-- rocket.rs, **framework** back
+- rocket.rs, *framework* back
 
 ### Infrastructure
 
