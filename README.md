@@ -39,3 +39,7 @@ Ce projet utilise Rust en front-end et en back-end.
 ### Infrastructure
 
 - github, gestionnaire de version et de projet
+
+# Schéma de l'architecture de l'application
+
+![Diagramme de l'architecture](diagramme-architecture/diagramme-architecture.png)
