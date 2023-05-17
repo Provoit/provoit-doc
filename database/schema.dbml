@@ -1,0 +1,72 @@
+// Can be rendered on https://dbdiagram.io
+
+Table users {
+    id "bigint unsigned" [pk, increment]
+    firstname text [not null]
+    lastname text [not null]
+    mail text [not null, unique]
+    passwd text [not null]
+    profile_pic blob
+    smoker bool [not null]
+    id_favorite_vehicle "bigint unsigned" [unique, ref: > vehicles.id]
+}
+
+Table vehicles {
+    id "bigint unsigned" [pk, increment]
+    name text [not null]
+    year year [not null]
+    nb_doors "tinyint unsigned" [not null]
+    nb_seats "tinyint unsigned" [not null]
+    trunk_size_L "smallint unsigned" [not null]
+    pic blob
+    id_user "bigint unsigned" [not null, ref: > users.id]
+    id_type "bigint unsigned" [not null, ref: > vehicle_types.id]
+}
+
+Table vehicle_types {
+    id "bigint unsigned" [pk, increment]
+    label text [not null]
+}
+
+Table trips {
+    id "bigint unsigned" [pk, increment]
+    start text [not null]
+    end text [not null]
+    max_people "tinyint unsigned" [not null]
+    price float [not null]
+    id_frequency "bigint unsigned" [not null, ref: > frequencies.id]
+    id_vehicle "bigint unsigned" [not null, ref: > vehicles.id]
+    id_start_timing "bigint unsigned" [not null, unique, ref: > timings.id]
+    id_end_timing "bigint unsigned" [not null, unique, ref: > timings.id]
+}
+
+Table timings {
+    id "bigint unsigned" [pk, increment]
+    date date
+    time time [not null]
+    id_day "bigint unsigned" [ref: > days.id]
+}
+
+Table days {
+    id "bigint unsigned" [pk, increment]
+    label text [not null]
+}
+
+Table frequencies {
+    id "bigint unsigned" [pk, increment]
+    label text [not null]
+}
+
+Table trip_road_types {
+    id_trip "bigint unsigned" [not null, ref: > trips.id]
+    id_road_type "bigint unsigned" [not null, ref: > road_types.id]
+
+    indexes {
+        (id_trip, id_road_type) [pk]
+    }
+}
+
+Table road_types {
+    id "bigint unsigned" [pk, increment]
+    label text [not null]
+}
