@@ -70,3 +70,12 @@ Table road_types {
     id "bigint unsigned" [pk, increment]
     label text [not null]
 }
+
+Table user_trips {
+  id_user "bigint unsigned" [not null, ref: > users.id]
+  id_trip "bigint unsigned" [not null, ref: > trips.id]
+
+  indexes {
+      (id_user, id_trip) [pk]
+  }
+}
