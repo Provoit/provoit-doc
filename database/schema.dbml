@@ -6,6 +6,8 @@ Table users {
     lastname text [not null]
     mail text [not null, unique]
     passwd text [not null]
+    token text
+    token_gentime datetime
     profile_pic blob
     smoker bool [not null]
     id_favorite_vehicle "bigint unsigned" [unique, ref: > vehicles.id]
