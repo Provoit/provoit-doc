@@ -36,6 +36,7 @@ Table trips {
     end text [not null]
     max_people "tinyint unsigned" [not null]
     price float [not null]
+    recurring bool [not null]
     id_frequency "bigint unsigned" [not null, ref: > frequencies.id]
     id_vehicle "bigint unsigned" [not null, ref: > vehicles.id]
     id_start_timing "bigint unsigned" [not null, unique, ref: > timings.id]
